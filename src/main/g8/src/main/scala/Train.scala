@@ -102,7 +102,7 @@ object Train {
       log.info(s"Starting epoch $"$"$i of $"$"${c.nEpochs}")
 
       while (trainData.hasNext) {
-        model.fit(dstrainData.next())
+        model.fit(trainData.next())
       }
       
       log.info(s"Finished epoch $"$"$i")
