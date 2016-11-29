@@ -1,7 +1,7 @@
 package $organization$.$name;format="lower,word"$
 
 import org.deeplearning4j.util.ModelSerializer
-import scopt
+import scopt.OptionParser
 import java.io.File
 
 case class EvaluateConfig(

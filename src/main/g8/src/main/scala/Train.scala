@@ -17,7 +17,7 @@ import org.nd4j.linalg.dataset.api.preprocessor.NormalizerStandardize
 import org.nd4j.linalg.lossfunctions.LossFunctions
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import scopt
+import scopt.OptionParser
 
 import java.io.File
 
