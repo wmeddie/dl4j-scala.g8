@@ -42,6 +42,7 @@ object Evaluate {
       case Some(config) =>
         val model = ModelSerializer.restoreMultiLayerNetwork(config.modelName)
         val (testData, normalizer) = DataIterators.irisCsv(config.input)
+        normalizer.load(new File(config.modelName + ".norm"))
 
         val eval = new Evaluation(3)
         while (testData.hasNext) {

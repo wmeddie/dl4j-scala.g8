@@ -105,13 +105,14 @@ object Train {
         val ds = trainData.next()
         normalizer.transform(ds)
         
-        model.fit(ds);
+        model.fit(ds)
       }
       
       log.info(s"Finished epoch $"$"$i")
     }
 
     ModelSerializer.writeModel(model, c.modelName, true)
+    normalizer.save(new File(c.modelName + ".norm"))
 
     log.info(s"Model saved to: $"$"${c.modelName}")
   }
