@@ -87,8 +87,8 @@ object Train {
     }
   }
 
-  private def train(c: Config): Unit = {
-    val (trainData, normalizer) = DataIterator.irisCsv(c.input)
+  private def train(c: TrainConfig): Unit = {
+    val (trainData, normalizer) = DataIterators.irisCsv(c.input)
 
     log.info("Data Loaded")
 
