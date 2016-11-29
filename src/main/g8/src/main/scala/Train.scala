@@ -99,7 +99,7 @@ object Train {
     model.setListeners(new ScoreIterationListener(100))
 
     for (i <- 0 until c.nEpochs) {
-      log.info(s"Starting epoch $$i of $${c.nEpochs}")
+      log.info(s"Starting epoch $"$"$i of $"$"${c.nEpochs}")
 
       while (trainData.hasNext) {
         val ds = trainData.next()
@@ -108,11 +108,11 @@ object Train {
         model.fit(ds);
       }
       
-      log.info(s"Finished epoch $$i")
+      log.info(s"Finished epoch $"$"$i")
     }
 
     ModelSerializer.writeModel(model, c.modelName, true)
 
-    log.info(s"Model saved to: $${c.modelName}")
+    log.info(s"Model saved to: $"$"${c.modelName}")
   }
 }
