@@ -1,12 +1,15 @@
 package $organization$.$name;format="lower,word"$
 
+import org.deeplearning4j.eval.Evaluation
 import org.deeplearning4j.util.ModelSerializer
+import org.slf4j.LoggerFactory
 import scopt.OptionParser
+
 import java.io.File
 
 case class EvaluateConfig(
-  input: File,
-  modelName: String
+  input: File = null,
+  modelName: String = ""
 )
 
 object EvaluateConfig {
@@ -32,6 +35,8 @@ object EvaluateConfig {
 }
 
 object Evaluate {
+  private val log = LoggerFactory.getLogger(getClass)
+
   def main(args: Array[String]): Unit = {
     EvaluateConfig.parse(args) match {
       case Some(config) =>
@@ -42,8 +47,8 @@ object Evaluate {
         while (testData.hasNext) {
             val ds = testData.next()
             normalizer.transform(ds)
-            val output = model.output(ds.getFeatureMatrix())
-            eval.eval(ds.getLabels(), output)
+            val output = model.output(ds.getFeatureMatrix)
+            eval.eval(ds.getLabels, output)
         }
         
         log.info(eval.stats())

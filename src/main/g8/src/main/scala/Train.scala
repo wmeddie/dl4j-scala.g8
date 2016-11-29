@@ -22,8 +22,8 @@ import scopt.OptionParser
 import java.io.File
 
 case class TrainConfig(
-  input: File,
-  modelName: String,
+  input: File = null,
+  modelName: String = "",
   nEpochs: Int = 1
 )
 
@@ -54,7 +54,7 @@ object TrainConfig {
 }
 
 object Train {
-  private val log = LoggerFactory.getLogger(classOf[Train])
+  private val log = LoggerFactory.getLogger(getClass)
 
   private def net(nIn: Int, nOut: Int) = new NeuralNetConfiguration.Builder()
     .seed(42)

@@ -3,7 +3,7 @@ package $organization$.$name;format="lower,word"$
 import org.scalatest._
 import org.nd4j.linalg.factory.Nd4j
 
-class ExampleSpec extends FlatSpec with Matchers {
+class AppSpec extends FlatSpec with Matchers {
 
   "This project" should "have some tests" in {
     (2 + 2) should be (4)
