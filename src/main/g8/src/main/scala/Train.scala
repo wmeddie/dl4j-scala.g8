@@ -112,7 +112,7 @@ object Train {
     }
 
     ModelSerializer.writeModel(model, c.modelName, true)
-    normalizer.save(new File(c.modelName + ".norm"))
+    normalizer.save((1 to 4).map(j => new File(c.modelName + s".norm$j")):_*)
 
     log.info(s"Model saved to: $"$"${c.modelName}")
   }
