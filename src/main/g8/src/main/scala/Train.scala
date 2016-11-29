@@ -96,19 +96,17 @@ object Train {
     val model = new MultiLayerNetwork(conf)
     model.init()
 
-    model.setListeners(new ScoreIterationListener(100))
+    model.setListeners(new ScoreIterationListener(1))
 
     for (i <- 0 until c.nEpochs) {
       log.info(s"Starting epoch $"$"$i of $"$"${c.nEpochs}")
 
       while (trainData.hasNext) {
-        val ds = trainData.next()
-        normalizer.transform(ds)
-        
-        model.fit(ds)
+        model.fit(dstrainData.next())
       }
       
       log.info(s"Finished epoch $"$"$i")
+      trainData.reset()
     }
 
     ModelSerializer.writeModel(model, c.modelName, true)

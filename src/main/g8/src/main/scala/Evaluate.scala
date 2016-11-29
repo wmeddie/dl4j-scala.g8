@@ -47,7 +47,6 @@ object Evaluate {
         val eval = new Evaluation(3)
         while (testData.hasNext) {
             val ds = testData.next()
-            normalizer.transform(ds)
             val output = model.output(ds.getFeatureMatrix)
             eval.eval(ds.getLabels, output)
         }

@@ -30,6 +30,8 @@ object DataIterators {
     }
     iterator.reset()
 
+    iterator.setPreProcessor(normalizer)
+
     (iterator, normalizer)
   }
 }
