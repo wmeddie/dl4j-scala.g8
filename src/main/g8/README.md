@@ -9,14 +9,14 @@ Use sbt to train the model.
     sbt "run-main $organization$.$name;format="lower,word"$.Train --input trainInput --output output.model --epoch 5"
 
 Example:
-    sbt "run-main $organization$.$name;format="lower,word"$.Train --input foo.trian.csv --output out1.model --epoch 10"
+    sbt "run-main $organization$.$name;format="lower,word"$.Train --input iris.train.csv --output out1.model --epoch 10"
 
 ## Evaluation
 
     sbt "run-main $organization$.$name;format="lower,word"$.Evaluate --input testInput --model trained.model"
 
 Example:
-    sbt "run-main $organization$.$name;format="lower,word"$.Evaluate --input foo.test.csv --model out1.model"
+    sbt "run-main $organization$.$name;format="lower,word"$.Evaluate --input iris.test.csv --model out1.model"
 
 ## Repl
 
