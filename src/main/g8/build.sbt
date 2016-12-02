@@ -9,13 +9,13 @@ scalaVersion := "2.12.0"
 crossScalaVersions := Seq("2.11.8", "2.12.0")
 
 // For CPU (Comment out to use the GPU)
-libraryDependencies += "org.nd4j" % "nd4j-native-platform" % "0.7.0"
+libraryDependencies += "org.nd4j" % "nd4j-native-platform" % "0.7.1"
 
 // For GPU (If you've done the Nvidia cuda dance.)
-//libraryDependencies += "org.nd4j" % "nd4j-cuda-8.0-platform" % "0.7.0"
-//libraryDependencies += "org.deeplearning4j" % "deeplearning4j-cuda-8.0" % "0.7.0"
+//libraryDependencies += "org.nd4j" % "nd4j-cuda-8.0-platform" % "0.7.1"
+//libraryDependencies += "org.deeplearning4j" % "deeplearning4j-cuda-8.0" % "0.7.1"
 
-libraryDependencies += "org.deeplearning4j" % "deeplearning4j-core" % "0.7.0"
+libraryDependencies += "org.deeplearning4j" % "deeplearning4j-core" % "0.7.1"
 
 libraryDependencies += "org.slf4j" % "slf4j-simple" % "1.7.21"
 
