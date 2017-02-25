@@ -19,6 +19,8 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import scopt.OptionParser
 
+import org.nd4j.linalg.activations.Activation
+
 import java.io.File
 
 case class TrainConfig(
@@ -59,15 +61,14 @@ object Train {
   private def net(nIn: Int, nOut: Int) = new NeuralNetConfiguration.Builder()
     .seed(42)
     .iterations(1)
-    .activation("relu")
-    .weightInit(WeightInit.XAVIER)
+    .activation(Activation.RELU).weightInit(WeightInit.XAVIER)
     .learningRate(0.1)
     .regularization(true).l2(1e-4)
     .list(
       new DenseLayer.Builder().nIn(nIn).nOut(3).build(),
       new DenseLayer.Builder().nIn(3).nOut(3).build(),
       new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)
-        .activation("softmax")
+        .activation(Activation.SOFTMAX)
         .nIn(3)
         .nOut(nOut)
         .build()
