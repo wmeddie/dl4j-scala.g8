@@ -9,13 +9,13 @@ scalaVersion := "2.12.0"
 crossScalaVersions := Seq("2.11.8", "2.12.0")
 
 // For CPU (Comment out to use the GPU)
-libraryDependencies += "org.nd4j" % "nd4j-native-platform" % "0.7.1"
+libraryDependencies += "org.nd4j" % "nd4j-native-platform" % "0.7.2"
 
 // For GPU (If you've done the Nvidia cuda dance.)
-//libraryDependencies += "org.nd4j" % "nd4j-cuda-8.0-platform" % "0.7.1"
-//libraryDependencies += "org.deeplearning4j" % "deeplearning4j-cuda-8.0" % "0.7.1"
+//libraryDependencies += "org.nd4j" % "nd4j-cuda-8.0-platform" % "0.7.2"
+//libraryDependencies += "org.deeplearning4j" % "deeplearning4j-cuda-8.0" % "0.7.2"
 
-libraryDependencies += "org.deeplearning4j" % "deeplearning4j-core" % "0.7.1"
+libraryDependencies += "org.deeplearning4j" % "deeplearning4j-core" % "0.7.2"
 
 libraryDependencies += "org.slf4j" % "slf4j-simple" % "1.7.21"
 
@@ -58,6 +58,7 @@ import org.deeplearning4j.nn.conf.layers.setup.ConvolutionLayerSetup
 import org.deeplearning4j.nn.multilayer.MultiLayerNetwork
 import org.deeplearning4j.nn.weights.WeightInit
 import org.deeplearning4j.optimize.listeners._
+import org.deeplearning4j.util.ModelSerializer
 import org.nd4j.linalg.api.ndarray.INDArray
 import org.nd4j.linalg.dataset.DataSet
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator
@@ -68,4 +69,5 @@ import org.nd4j.linalg.indexing.NDArrayIndex
 import java.io.File
 
 import $organization$.$name;format="lower,word"$._
+
 """
