@@ -1,5 +1,6 @@
 package $organization$.$name;format="lower,word"$
 
+import java.io.File
 
 import org.deeplearning4j.util.ModelSerializer
 import org.slf4j.LoggerFactory
