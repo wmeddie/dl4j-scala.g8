@@ -23,7 +23,7 @@ case class TrainConfig(
 
 object TrainConfig {
   private val parser = new OptionParser[TrainConfig]("Train") {
-      head("deleteme1 Train", "1.0")
+      head("$name;format="lower,word"$ Train", "1.0")
 
       opt[File]('i', "input")
         .required()

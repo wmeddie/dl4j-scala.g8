@@ -12,7 +12,7 @@ case class EvaluateConfig(
 
 object EvaluateConfig {
   private val parser = new OptionParser[EvaluateConfig]("Evaluate") {
-      head("deleteme1 Evaluate", "1.0")
+      head("$name;format="lower,word"$ Evaluate", "1.0")
 
       opt[File]('i', "input")
         .required()
