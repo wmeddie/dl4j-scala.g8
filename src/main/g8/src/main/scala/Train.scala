@@ -95,6 +95,6 @@ object Train {
     val normalizer = trainData.getPreProcessor.asInstanceOf[NormalizerStandardize]
     ModelSerializer.writeModel(model, new File(c.modelName), true, normalizer)
 
-    log.info(s"Model saved to: ${c.modelName}")
+    log.info(s"Model saved to: "$"${c.modelName}")
   }
 }
