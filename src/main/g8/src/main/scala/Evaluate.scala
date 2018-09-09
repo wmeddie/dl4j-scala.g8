@@ -1,11 +1,9 @@
 package $organization$.$name;format="lower,word"$
 
-import org.deeplearning4j.eval.Evaluation
+
 import org.deeplearning4j.util.ModelSerializer
 import org.slf4j.LoggerFactory
 import scopt.OptionParser
-
-import java.io.File
 
 case class EvaluateConfig(
   input: File = null,
@@ -13,8 +11,8 @@ case class EvaluateConfig(
 )
 
 object EvaluateConfig {
-  val parser = new OptionParser[EvaluateConfig]("Evaluate") {
-      head("$name;format="lower,word"$ Evaluate", "1.0")
+  private val parser = new OptionParser[EvaluateConfig]("Evaluate") {
+      head("deleteme1 Evaluate", "1.0")
 
       opt[File]('i', "input")
         .required()
@@ -40,19 +38,14 @@ object Evaluate {
   def main(args: Array[String]): Unit = {
     EvaluateConfig.parse(args) match {
       case Some(config) =>
-        val model = ModelSerializer.restoreMultiLayerNetwork(config.modelName)
-        val (testData, normalizer) = DataIterators.irisCsv(config.input)
-        normalizer.load((1 to 4).map(j => new File(config.modelName + s".norm$"$"$j")):_*)
+        val pair = ModelSerializer.restoreMultiLayerNetworkAndNormalizer(new File(config.modelName), false)
 
-        val eval = new Evaluation(3)
-        while (testData.hasNext) {
-            val ds = testData.next()
-            val output = model.output(ds.getFeatureMatrix)
-            eval.eval(ds.getLabels, output)
-        }
-        
-        log.info(eval.stats())
+        val model = pair.getFirst
 
+        val testData = DataIterators.irisCsv(config.input)
+
+        val evaluation = model.evaluate(testData)
+        log.info(evaluation.stats())
       case _ =>
         log.error("Invalid arguments.")
     }

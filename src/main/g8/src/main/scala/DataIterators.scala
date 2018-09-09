@@ -1,16 +1,15 @@
 package $organization$.$name;format="lower,word"$
 
+import java.io.File
+
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader
 import org.datavec.api.split.FileSplit
 import org.deeplearning4j.datasets.datavec.RecordReaderDataSetIterator
-import org.nd4j.linalg.dataset.api.preprocessor.DataNormalization
 import org.nd4j.linalg.dataset.api.preprocessor.NormalizerStandardize
 
-import java.io.File
-
 object DataIterators {
-  def irisCsv(f: File): (RecordReaderDataSetIterator, DataNormalization)  = {
-    val recordReader = new CSVRecordReader(0, ",")
+  def irisCsv(f: File): RecordReaderDataSetIterator  = {
+    val recordReader = new CSVRecordReader(0, ',')
     recordReader.initialize(new FileSplit(f))
 
     val labelIndex = 4;     //5 values in each row of the iris.txt CSV: 4 input features followed by an integer label (class) index. Labels are the 5th value (index 4) in each row
@@ -22,7 +21,7 @@ object DataIterators {
       batchSize,
       labelIndex,
       numClasses)
-    
+
     val normalizer = new NormalizerStandardize()
 
     while (iterator.hasNext) {
@@ -32,6 +31,6 @@ object DataIterators {
 
     iterator.setPreProcessor(normalizer)
 
-    (iterator, normalizer)
+    iterator
   }
 }

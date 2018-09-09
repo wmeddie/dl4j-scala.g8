@@ -12,7 +12,7 @@ class AppSpec extends FlatSpec with Matchers {
   it should "Be able to create NDArrays on the CPU or GPU" in {
     val a = Nd4j.ones(2, 2)
     val b = Nd4j.ones(2, 2)
-    
-    (a add b).getDouble(0, 0) should be (2.0)
+
+    (a add b).getDouble(0L, 0L) should be (2.0)
   }
 }
